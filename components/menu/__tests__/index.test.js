@@ -97,7 +97,7 @@ describe('Menu', () => {
       { attachTo: 'body', sync: false },
     );
     await asyncExpect(() => {
-      expect($$('.ant-menu-sub')[0].parentElement.style.display).not.toBe('none');
+      expect($$('ul.ant-menu-sub')[0].style.display).not.toBe('none');
     });
   });
 
@@ -119,12 +119,12 @@ describe('Menu', () => {
       { attachTo: 'body', sync: false },
     );
     await asyncExpect(() => {
-      expect($$('.ant-menu-sub')[0].parentElement.style.display).not.toBe('none');
+      expect($$('.ant-menu-submenu-popup')[0].style.display).not.toBe('none');
     }, 100);
   });
 
   it('horizontal', async () => {
-    const wrapper = mount(
+    mount(
       {
         props: {
           openKeys: {
@@ -149,14 +149,7 @@ describe('Menu', () => {
       { attachTo: 'body', sync: false },
     );
     await sleep(100);
-    expect($$('.ant-menu-sub')[0].parentElement.style.display).not.toBe('none');
-    wrapper.setProps({ openKeys: [] });
-    await sleep(100);
-    expect($$('.ant-menu-sub')[0].parentElement.style.display).toBe('none');
-    await sleep(100);
-    wrapper.setProps({ openKeys: ['1'] });
-    await sleep(100);
-    expect($$('.ant-menu-sub')[0].parentElement.style.display).not.toBe('none');
+    expect($$('.ant-menu-submenu-popup')[0].style.display).not.toBe('none');
   });
 
   // it('inline', async () => {
@@ -219,15 +212,15 @@ describe('Menu', () => {
       { attachTo: 'body', sync: false },
     );
     await asyncExpect(() => {
-      expect($$('.ant-menu-sub')[0].parentElement.style.display).not.toBe('none');
+      expect($$('.ant-menu-submenu-popup')[0].style.display).not.toBe('none');
     }, 100);
     wrapper.setProps({ openKeys: [] });
     await asyncExpect(() => {
-      expect($$('.ant-menu-sub')[0].parentElement.style.display).toBe('none');
+      expect($$('.ant-menu-submenu-popup')[0].style.display).toBe('none');
     }, 500);
     wrapper.setProps({ openKeys: ['1'] });
     await asyncExpect(() => {
-      expect($$('.ant-menu-sub')[0].parentElement.style.display).not.toBe('none');
+      expect($$('.ant-menu-submenu-popup')[0].style.display).not.toBe('none');
     }, 100);
   });
 
@@ -459,11 +452,11 @@ describe('Menu', () => {
   //     }, 0);
   //     await asyncExpect(() => {
   //       expect($$('.ant-menu-sub').length).toBe(1);
-  //       expect($$('.ant-menu-sub')[0].parentElement.style.display).not.toBe('none');
+  //       expect($$('.ant-menu-submenu-popup')[0].style.display).not.toBe('none');
   //       toggleMenu(wrapper, 0, 'mouseleave');
   //     }, 500);
   //     await asyncExpect(() => {
-  //       expect($$('.ant-menu-sub')[0].parentElement.style.display).toBe('none');
+  //       expect($$('.ant-menu-submenu-popup')[0].style.display).toBe('none');
   //     }, 500);
   //   });
 
@@ -490,11 +483,11 @@ describe('Menu', () => {
   //     }, 100);
   //     await asyncExpect(() => {
   //       expect($$('.ant-menu-sub').length).toBe(1);
-  //       expect($$('.ant-menu-sub')[0].parentElement.style.display).not.toBe('none');
+  //       expect($$('.ant-menu-submenu-popup')[0].style.display).not.toBe('none');
   //       toggleMenu(wrapper, 1, 'mouseleave');
   //     }, 500);
   //     await asyncExpect(() => {
-  //       expect($$('.ant-menu-sub')[0].parentElement.style.display).toBe('none');
+  //       expect($$('.ant-menu-submenu-popup')[0].style.display).toBe('none');
   //     }, 500);
   //   });
   // });
